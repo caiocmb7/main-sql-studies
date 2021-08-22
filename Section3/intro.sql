@@ -1,4 +1,4 @@
-#mysql-ctl cli
+/* mysql-ctl cli */
 
 CREATE DATABASE shop;
 
