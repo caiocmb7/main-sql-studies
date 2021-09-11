@@ -1,0 +1,6 @@
+USE trash_stuff;
+
+ALTER TABLE desafio
+MODIFY COLUMN tabela DECIMAL(10,2) NOT NULL DEFAULT 1.00;
+
+DESC desafio;
