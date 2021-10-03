@@ -28,6 +28,6 @@ VALUES
   (6,	'Joaquim Diego Lorenzo Araújo',	'Rua Vitorino',	'Novo Hamburgo',	'RS',	2314);
   
 SELECT
-    COUNT(DISTINCT city)
+    COUNT(DISTINCT city) AS qte_distinta
 FROM customers;
  
