@@ -8,8 +8,8 @@
 - orderBy(): além de ordenar os números, ele consegue ordenar strings em ordem alfabetica;
 - md5(): formata uma senha/password encriptada;
 - length(): calcula o numero de letras de cada row passada;
-- COUNT(): conta quantas rows aparece no display. COUNT(DISTINCT column) diferencia contando apenas 1 vez cada coisa que aparece no display;
-
+- count(): conta quantas rows aparece no display. COUNT(DISTINCT column) diferencia contando apenas 1 vez cada coisa que aparece no display;
+- substring(): divide uma string em uma substring passando o 'start' e o tamanho que será coletado a partir do start da string original;
 
 
 
