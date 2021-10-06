@@ -10,6 +10,7 @@
 - length(): calcula o numero de letras de cada row passada;
 - count(): conta quantas rows aparece no display. COUNT(DISTINCT column) diferencia contando apenas 1 vez cada coisa que aparece no display;
 - substring(): divide uma string em uma substring passando o 'start' e o tamanho que será coletado a partir do start da string original;
+- extract(): metódo para extrair caracteristicas de uma string do tipo date, como dia, mes, ano e hora;
 
 
 
