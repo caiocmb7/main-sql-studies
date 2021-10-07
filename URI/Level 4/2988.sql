@@ -39,20 +39,74 @@ values
     (1,4,1,0,4),
     (2,3,2,0,1);
 
-SELECT * FROM matches;
+-- solucao
 
 SELECT 
-    *
-FROM matches
-INNER JOIN teams
-    ON matches.team_1 = teams.id OR matches.team_2 = teams.id;
 
-/*    
-CASE
-        WHEN matches.team_1_goals == matches.team_2_goals THEN 'empate'
-        WHEN matches.team_1_goals > matches.team_2_goals THEN 'vitoria'
-        WHEN matches.team_1_goals < matches.team_2_goals THEN 'derrota' 
-    END
+-- name
+
+    (
+        SELECT 
+            name 
+        FROM teams t 
+        WHERE t.id = team.id
+    ) AS name,
     
-    COUNT(DISTINCT matches.team_1) + COUNT(DISTINCT matches.team_2) AS matches
+-- matches
+
+    (
+        SELECT 
+            count(name)
+        FROM teams 
+        INNER JOIN matches 
+            ON teams.id = matches.team_1 or teams.id = matches.team_2
+    ) AS matches
+
+
+
+/*
+    -- Finding victories
+( -- Team 2 victories
+    SELECT sum(case when team_2_goals > team_1_goals then 1 else 0 END) as victories 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_2 
+    WHERE t.id = team.id
+)+( -- Team 1 victories
+    SELECT sum(case when team_1_goals > team_2_goals then 1 else 0 END) 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_1 
+    WHERE t.id = team.id
+) as victories,
+
+-- Finding defeats 
+( -- Team 2 Defeats
+    SELECT sum(case when team_2_goals < team_1_goals then 1 else 0 END) as victories 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_2 
+    WHERE t.id = team.id
+)+( -- Team 1 Defeats
+    SELECT sum(case when team_1_goals < team_2_goals then 1 else 0 END) 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_1 
+    WHERE t.id = team.id
+) as defeats,
+
+( -- Team 2 Draws
+    SELECT sum(case when team_2_goals = team_1_goals then 1 else 0 END) as victories 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_2 
+    WHERE t.id = team.id
+)+( -- Team 1 Draws
+    SELECT sum(case when team_1_goals = team_2_goals then 1 else 0 END) 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_1 
+    WHERE t.id = team.id
+) as draws,
+
+--Finding scores
+( -- Team 2 scores
+    SELECT sum(case when team_2_goals > team_1_goals then 3 when team_2_goals = team_1_goals then 1 else 0 END) as victories 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_2 
+    WHERE t.id = team.id
+)+( -- Team 1 scores
+    SELECT sum(case when team_1_goals > team_2_goals then 3 when team_1_goals = team_2_goals then 1 else 0 END) 
+    FROM teams t INNER JOIN matches m ON t.id = m.team_1 
+    WHERE t.id = team.id
+) as score
 */
+FROM teams team;
+-- ORDER BY score DESC;
