@@ -86,16 +86,18 @@ REFERENCES projetos(pnumero);
 SELECT
     empregados.cpf,
     empregados.enome,
-    departamentos.dnome
+    d2.dnome
 FROM empregados
-INNER JOIN departamentos
-    departamentos.dnumero = empregados.dnumero
 LEFT JOIN trabalha
     ON trabalha.cpf_emp = empregados.cpf
+LEFT JOIN departamentos d1
+    ON d1.cpf_gerente = empregados.cpf
 LEFT JOIN projetos
-    ON trabalha.pnumero = projetos.pnumero
-WHERE projetos.pnumero IS NULL
-ORDER BY empregados.cpf;  
+    ON projetos.dnumero = d1.dnumero
+INNER JOIN departamentos d2
+    ON empregados.dnumero = d2.dnumero
+WHERE empregados.cpf_supervisor IS NULL
+ORDER BY empregados.cpf;   
 
   
 /*
