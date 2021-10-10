@@ -11,8 +11,8 @@
 - count(): conta quantas rows aparece no display. COUNT(DISTINCT column) diferencia contando apenas 1 vez cada coisa que aparece no display;
 - substring(): divide uma string em uma substring passando o 'start' e o tamanho que será coletado a partir do start da string original;
 - extract(): metódo para extrair caracteristicas de uma string do tipo date, como dia, mes, ano e hora;
-- CASE WHEN vs. UPDATE: case when pode ser usado para fazer modificações idênticas ao que a função update realiza;
-- CAST(): método para modificar o tipo do atributo. ex: integer para string, date para string, etc;
+- case when vs. update(): case when pode ser usado para fazer modificações idênticas ao que a função update realiza;
+- cast(): método para modificar o tipo do atributo. ex: integer para string, date para string, etc;
 
 
 
