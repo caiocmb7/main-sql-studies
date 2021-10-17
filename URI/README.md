@@ -1,6 +1,6 @@
 # Repositório usado para submeter as respostas aos exercícios do site URI-sql
 
-## Tips
+## Algumas dicas que pode-se passar durante o estudo desse tópico
 
 ### Funções e Métodos que foram usados e aprendidos ao longo dos exercícios
 
