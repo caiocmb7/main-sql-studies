@@ -1,8 +1,8 @@
 # Repositório usado para submeter as respostas aos exercícios do site URI-sql
 
-## Algumas dicas que pode-se passar durante o estudo desse tópico
+## Dicas
 
-### Funções e Métodos que foram usados e aprendidos ao longo dos exercícios
+### Funções e Métodos que foram usados e aprendidos ao longo dos exercícios do URI
 
 - replace(): modifica todos as substrings que contém determinado conteúdo e substitui por outro;
 - orderBy(): além de ordenar os números, ele consegue ordenar strings em ordem alfabetica;
