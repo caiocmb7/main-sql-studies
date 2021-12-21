@@ -44,6 +44,7 @@ inner join Dep_Curso
     on Dep_Curso.Cod_curso_fk = Cur_Disc.Cod_disc_fk
 inner join Departamento
     on Departamento.Cod_dep = Dep_Curso.Cod_dep_fk
-where Departamento.Cod_dep = 3
+where Departamento.nome = 'Centro de Ciências'
 group by Alunos.matr_aluno
-order by media_global DESC
+order by media_global DESC;
+-- where Departamento.Cod_dep = 3
