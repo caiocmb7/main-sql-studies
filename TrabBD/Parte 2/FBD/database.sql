@@ -47,9 +47,9 @@ CREATE TABLE Alunos (
 -- t10 (ok)
 CREATE TABLE Aluno_disc (
     Semestre NUMERIC(5,1),
-    AF INTEGER,
-    PrimeiraAP INTEGER,
-    SegundaAP INTEGER,
+    AF FLOAT,
+    PrimeiraAP FLOAT,
+    SegundaAP FLOAT,
     Cod_disc_fk INTEGER,
     matr_aluno_fk INTEGER,
     FOREIGN KEY(Cod_disc_fk) REFERENCES Disciplina(Cod_disc),
@@ -85,11 +85,11 @@ CREATE TABLE Professor (
     diretor_Cod_UA INTEGER,
     chefe_cod_dep INTEGER,
     coordenador_cod_curso INTEGER,
-    Cod_dep_fk INTEGER,
+    lotacao INTEGER,
     FOREIGN KEY(diretor_Cod_UA) REFERENCES UnidadeAcademica(Cod_UA),
     FOREIGN KEY(chefe_cod_dep) REFERENCES Departamento(Cod_dep),
     FOREIGN KEY(coordenador_cod_curso) REFERENCES Curso(Cod_curso),
-    FOREIGN KEY(Cod_dep_fk) REFERENCES Departamento(Cod_dep)
+    FOREIGN KEY(lotacao) REFERENCES Departamento(Cod_dep)
 );
 
 -- t5
@@ -219,7 +219,7 @@ insert into Aluno_disc (Semestre, AF, PrimeiraAP, SegundaAP, Cod_disc_fk, matr_a
 
 insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (1, 'DAUD', '0983 Bobwhite Alley', 1);
 insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (2, 'DETI', '227 Bobwhite Alley', 2);
-insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (3, 'CC', '55510 Cordelia Center', 3);
+insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (3, 'DC', '55510 Cordelia Center', 3);
 insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (4, 'DEP', '8937 Superior Way', 1);
 insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (5, 'DET', '064 Hooker Parkway', 2);
 insert into Departamento (Cod_dep, nome, endereco, Cod_UA_fk) values (6, 'DEE', '612 Morning Plaza', 3);
@@ -239,16 +239,16 @@ insert into telefones_dep (Num_tel, tipo_fone, Cod_dep_fk) values (152843077, 'f
 insert into telefones_dep (Num_tel, tipo_fone, Cod_dep_fk) values (340594305, 'fixo', 9);
 insert into telefones_dep (Num_tel, tipo_fone, Cod_dep_fk) values (792715259, 'movel', 10);
 
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (7234, 8073329, 'Filberte Bosdet', '5583 Glendale Plaza', 2875770632, 7517973428, 1, 1, 1, 1);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (54, 3161638, 'Lynne Lafont', '6916 Muir Point', 4817649380, 7852460755, 2, 2, 2, 2);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (3, 8681352, 'Aubine Bernardini', '44 Mosinee Alley', 9593286489, 7862366336, 3, 3, 3, 3);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (46, 0574339, 'Perry Alcorn', '00073 Crowley Place', 2495659640, 4398097147, 1, 4, 4, 3);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (426, 0777639, 'Jeffrey Skep', '4483 Buhler Plaza', 2659761106, 1519124686, 2, 5, 5, 3);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (62, 3449192, 'Franchot Jovovic', '8 Debra Trail', 8883731220, 6257547636, 3, 6, 6, 4);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (0, 5117530, 'Andrus Alvis', '7 Claremont Trail', 1807832074, 4766949072, 1, 7, 7, 3);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (00723, 6066321, 'Zahara Witson', '061 Washington Plaza', 1428162798, 4449794931, 2, 8, 8, 2);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (19, 2213690, 'Mathilda Kaufman', '322 Eagan Court', 1456511823, 5857641209, 1, 9, 9, 1);
-insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, Cod_dep_fk) values (5454, 1066912, 'Imelda Hardwich', '7671 Fulton Crossing', 7702628499, 2912539439, 3, 10, 10, 2);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (7234, 8073329, 'Filberte Bosdet', '5583 Glendale Plaza', 2875770632, 7517973428, 1, 1, 1, 1);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (54, 3161638, 'Lynne Lafont', '6916 Muir Point', 4817649380, 7852460755, 2, 2, 2, 2);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (3, 8681352, 'Aubine Bernardini', '44 Mosinee Alley', 9593286489, 7862366336, 3, 3, 3, 3);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (46, 0574339, 'Perry Alcorn', '00073 Crowley Place', 2495659640, 4398097147, 1, 4, 4, 3);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (426, 0777639, 'Jeffrey Skep', '4483 Buhler Plaza', 2659761106, 1519124686, 2, 5, 5, 3);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (62, 3449192, 'Franchot Jovovic', '8 Debra Trail', 8883731220, 6257547636, 3, 6, 6, 4);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (0, 5117530, 'Andrus Alvis', '7 Claremont Trail', 1807832074, 4766949072, 1, 7, 7, 3);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (00723, 6066321, 'Zahara Witson', '061 Washington Plaza', 1428162798, 4449794931, 2, 8, 8, 2);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (19, 2213690, 'Mathilda Kaufman', '322 Eagan Court', 1456511823, 5857641209, 1, 9, 9, 1);
+insert into Professor (matr, salario, nome, endereco, CPF, RG, diretor_Cod_UA, chefe_cod_dep, coordenador_cod_curso, lotacao) values (5454, 1066912, 'Imelda Hardwich', '7671 Fulton Crossing', 7702628499, 2912539439, 3, 10, 10, 2);
 
 insert into Cur_Disc (Cod_disc_fk, Cod_curso_fk) values (1, 1);
 insert into Cur_Disc (Cod_disc_fk, Cod_curso_fk) values (6, 1);
