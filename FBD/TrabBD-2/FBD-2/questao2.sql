@@ -1,10 +1,11 @@
-DROP VIEW visaoQuestao2;
+DROP VIEW IF EXISTS visaoQuestao2;
+
 CREATE VIEW visaoQuestao2 AS 
 SELECT
-    Alunos.nome AS Nome_aluno,
-    Curso.nome AS Nome_curso,
-    COUNT(DISTINCT Disciplina.Cod_disc) AS soma_disciplina,
-    SUM(Disciplina.qte_creditos) AS soma_creditos
+    Alunos.nome AS Aluno,
+    Curso.nome AS Curso,
+    COUNT(DISTINCT Disciplina.Cod_disc) AS qte_disciplinas,
+    SUM(Disciplina.qte_creditos) AS qte_creditos
 FROM Disciplina
 INNER JOIN Aluno_disc
     ON Aluno_disc.Cod_disc_fk = Disciplina.Cod_disc
