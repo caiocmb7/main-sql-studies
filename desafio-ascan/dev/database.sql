@@ -23,3 +23,25 @@ CREATE TABLE price_changes_table (
     FOREIGN KEY(listing_id) REFERENCES built_used_area_table(listing_id),
     FOREIGN KEY(details) REFERENCES details_table(details)
 );
+
+LOAD DATA LOCAL INFILE '/workspace/mysql/desafio-ascan/Built_used_area.csv'
+INTO TABLE built_used_area_table 
+FIELDS TERMINATED BY ';' 
+LINES TERMINATED BY '\n' 
+IGNORE 1 ROWS 
+(listing_id, built_area, used_area);
+
+LOAD DATA LOCAL INFILE '/workspace/mysql/desafio-ascan/Details.csv'
+INTO TABLE details_table
+FIELDS TERMINATED BY ';' 
+LINES TERMINATED BY '\n' 
+IGNORE 1 ROWS 
+(details, listing_id);
+
+LOAD DATA LOCAL INFILE '/workspace/mysql/desafio-ascan/Price_changes.csv'
+INTO TABLE price_changes_table 
+FIELDS TERMINATED BY ';' 
+LINES TERMINATED BY '\n' 
+IGNORE 1 ROWS 
+(listing_id, old_price, new_price, @change_date, details) 
+SET change_date  = STR_TO_DATE(@change_date, '%y-%m-%d');
