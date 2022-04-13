@@ -38,7 +38,7 @@ WHERE
 # query
 
 SELECT
-    ROUND(AVG((price_changes_table.new_price / built_used_area_table.used_area)),2) as average_square_meter
+    ROUND(AVG((price_changes_table.new_price / built_used_area_table.built_area)), 2) as average_square_meter  # built_area or used_area for calculate the average?
 FROM price_changes_table
 INNER JOIN built_used_area_table
     ON price_changes_table.listing_id = built_used_area_table.listing_id
