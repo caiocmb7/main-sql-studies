@@ -3,19 +3,16 @@ CREATE DATABASE desafio_ascan;
 USE desafio_ascan; 
 
 CREATE TABLE built_used_area_table (
-    listing_id INTEGER, # I thought that listing_id is Primary Key, but in .csv there are repeatable values
-    built_area FLOAT DEFAULT 0,
-    used_area INTEGER DEFAULT 0
+    listing_id INTEGER PRIMARY KEY, # I thought that listing_id is Primary Key, but in .csv there are repeatable values
+    built_area FLOAT,
+    used_area INTEGER
 );
-
 
 LOAD DATA LOCAL INFILE  '/workspace/mysql/desafio-ascan/Built_used_area.csv'
 INTO TABLE built_used_area_table
 FIELDS TERMINATED BY ';' 
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
-
-
 
 /*
 LOAD DATA LOCAL INFILE '/workspace/mysql/desafio-ascan/Built_used_area.csv'

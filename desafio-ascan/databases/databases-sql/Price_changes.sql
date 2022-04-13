@@ -1,15 +1,13 @@
-DROP DATABASE IF EXISTS desafio_ascan;
-CREATE DATABASE desafio_ascan;
 USE desafio_ascan; 
 
 CREATE TABLE price_changes_table (
-    listing_id INTEGER NOT NULL,
-    old_price BIGINT NOT NULL,
-    new_price BIGINT NOT NULL,
-    change_date DATE NOT NULL,
-    Details VARCHAR(255) NOT NULL
-    #FOREIGN KEY(listing_id) REFERENCES built_used_area_table(listing_id),
-    #FOREIGN KEY(details) REFERENCES details_table(details)
+    listing_id INTEGER,
+    old_price INTEGER,
+    new_price INTEGER,
+    change_date DATE,
+    Details VARCHAR(255),
+    FOREIGN KEY(listing_id) REFERENCES built_used_area_table(listing_id),
+    FOREIGN KEY(details) REFERENCES details_table(details)
 );
 
 

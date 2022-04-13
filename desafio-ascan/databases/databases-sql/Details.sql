@@ -1,11 +1,9 @@
-DROP DATABASE IF EXISTS desafio_ascan;
-CREATE DATABASE desafio_ascan;
 USE desafio_ascan; 
 
 CREATE TABLE details_table (
     listing_id INTEGER,
-    Details VARCHAR(512) PRIMARY KEY
-    #FOREIGN KEY(listing_id) REFERENCES built_used_area_table(listing_id)
+    Details VARCHAR(512) PRIMARY KEY,
+    FOREIGN KEY(listing_id) REFERENCES built_used_area_table(listing_id)
 );
 
 
