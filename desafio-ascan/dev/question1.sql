@@ -44,5 +44,5 @@ INNER JOIN built_used_area_table
     ON price_changes_table.listing_id = built_used_area_table.listing_id
 WHERE 
     price_changes_table.new_price > price_changes_table.old_price AND     # clause 1
-    used_area > 200 AND     # clause 2
+    (used_area > 200 OR built_area > 200) AND     # clause 2
     year(change_date) = 2016     # clause 3
