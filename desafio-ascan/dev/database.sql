@@ -36,12 +36,10 @@ INTO TABLE details_table
 FIELDS TERMINATED BY ';' 
 LINES TERMINATED BY '\n' 
 IGNORE 1 ROWS 
-(details, listing_id);
+(listing_id, Details);
 
 LOAD DATA LOCAL INFILE '/workspace/mysql/desafio-ascan/Price_changes.csv'
 INTO TABLE price_changes_table 
-FIELDS TERMINATED BY ';' 
 LINES TERMINATED BY '\n' 
 IGNORE 1 ROWS 
-(listing_id, old_price, new_price, @change_date, details) 
-SET change_date  = STR_TO_DATE(@change_date, '%y-%m-%d');
+(listing_id, old_price, new_price, change_date, Details);
