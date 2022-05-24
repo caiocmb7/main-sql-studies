@@ -16,6 +16,7 @@ CREATE TABLE details_table (
     FOREIGN KEY(listing_id) REFERENCES built_used_area_table(listing_id)
 );
 
+# rows resultantes do conjunto dos outros 2 criados
 CREATE TABLE price_changes_table (
     listing_id INTEGER,
     old_price FLOAT,
