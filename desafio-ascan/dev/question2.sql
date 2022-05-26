@@ -22,7 +22,15 @@ WHERE
 
 - Contar o número de imóveis que tiveram um decréscimo de preço em 2016 e a diminuição média da percentagem de preço/m2 desses imóveis;
 
+- ver se dar pra juntar as queries pra dar o output junto
+
+- ver como fica usando left, right, etc
+
+- tempo de execucao
+
+- ver o desempenho usando o union e usando somente select
 */
+
 SELECT
     COUNT(*) as number_proprieties,
     ROUND(((price_changes_table.new_price / price_changes_table.old_price) - 1)*100, 2) as increased_percentage_average # increased percentage per square meter
