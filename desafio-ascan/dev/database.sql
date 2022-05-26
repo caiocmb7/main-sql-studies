@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS desafio_ascan;
 CREATE DATABASE desafio_ascan;
 USE desafio_ascan; 
 
+# analisar se o problema de warning da ingestao de dados daqui é relevante ou não 
+
 # 5506 para 4137 rows por conta do drop_duplicates
 CREATE TABLE built_used_area_table (
     listing_id INTEGER PRIMARY KEY,
