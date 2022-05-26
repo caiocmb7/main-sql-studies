@@ -37,6 +37,10 @@ WHERE
 
 /*
 1. Escreva uma consulta MySQL para calcular o preço médio do metro quadrado dos imóveis com aumento de preço em 2016 que tenham uma área do metro quadrado > 200 (área construída ou usada).
+
+- ver certos metodos foram usados (join, where, etc)
+- tempo de execução 
+- ver problema de warning
 */
 # query
 
